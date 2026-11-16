@@ -152,7 +152,13 @@
         <div class="中籤文字區">
           <div class="中籤姓名">${中.名}</div>
           <div class="中籤序">第 ${已抽.length} 位 / 共 ${名單.length} 人</div>
+          <button class="次要鈕 再唸名字鈕" type="button">🔊 再唸一次</button>
         </div>`;
+      /* 抽到之後可以重複唸名字：按鈕、大照片、大姓名都能點 */
+      const 再唸 = () => 語音.唸(中.名);
+      box.querySelector(".再唸名字鈕").onclick = 再唸;
+      box.querySelector(".中籤照片區").onclick = 再唸;
+      box.querySelector(".中籤姓名").onclick = 再唸;
       void box.offsetWidth;                       // 重跑動畫
       box.classList.add("跳出");
       await 畫名單();
